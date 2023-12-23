@@ -1,7 +1,7 @@
 services:
   - type: web
     plan: free
-    name: TechMagazineAutoFilterBot
+    name: PiroAutoFilterbot
     env: python
     buildCommand: pip install -r requirements.txt
     startCommand: python3 bot.py
@@ -10,6 +10,8 @@ services:
       - key: BOT_TOKEN 
         sync: false
       - key: API_ID 
+        sync: false
+      - key: CHANNELS 
         sync: false
       - key: API_HASH
         sync: false
@@ -23,4 +25,4 @@ services:
         sync: false
       - key: LOG_CHANNEL
         sync: false    
-    autoDeploy: false
+    autoDeploy: true
