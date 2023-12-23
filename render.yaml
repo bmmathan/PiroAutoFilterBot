@@ -1,15 +1,26 @@
 services:
-  # A Docker web service
   - type: web
-    name: PiroAutoFilterBot
+    plan: free
+    name: TechMagazineAutoFilterBot
     env: python
+    buildCommand: pip install -r requirements.txt
     startCommand: python3 bot.py
-    buildCommand: pip3 install -U -r requirements.txt
-    repo: https://github/ritheshrkrm/PiroAutoFilterBot.git # optional
-    region: oregon # optional (defaults to oregon)
-    plan: free # optional (defaults to starter)
-    branch: master # optional (defaults to master)
-    numInstances: 1 # optional (defaults to 1)
-    healthCheckPath: /
-
-#End of yaml
+    repo: https://github.com/bmmathan/PiroAutoFilterBot.git
+    envVars:
+      - key: BOT_TOKEN 
+        sync: false
+      - key: API_ID 
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: ADMINS
+        sync: false
+      - key: DATABASE_NAME
+        sync: false
+      - key: DATABASE_URI
+        sync: false 
+      - key: PICS
+        sync: false
+      - key: LOG_CHANNEL
+        sync: false    
+    autoDeploy: false
